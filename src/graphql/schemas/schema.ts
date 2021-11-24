@@ -12,12 +12,12 @@ const schema = buildSchema(`type Article {
     body: String!
   }
   
-    type Query {
+  type Query {
     getArticles:[Article!]
   }
 
   extend type Query {
-    getArticle:Article!
+    getArticle(_id: String!):Article
   }
 
   type Mutation {
