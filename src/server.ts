@@ -9,7 +9,8 @@ const mongoose = require('mongoose')
 dotenv.config()
 
 
-
+const path = require('path')
+const PORT = process.env.PORT || 8000
 
 
 
@@ -25,6 +26,6 @@ const uri = `mongodb+srv://matt123:matt321@cluster0.wclvz.mongodb.net/posts?retr
 const options = {useNewUrlParser: true, useUnifiedTopology: true}
 // MONGODB
 mongoose.connect(uri, options).then(
-  app.listen(3000),
-  console.log("Listening")
+  app.listen(PORT,),
+  console.log(`Listening on ${ PORT }`)
 )

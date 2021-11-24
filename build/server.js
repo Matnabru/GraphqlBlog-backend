@@ -29,6 +29,8 @@ const schema_1 = require("./graphql/schemas/schema");
 const resolvers_1 = require("./graphql/resolvers/resolvers");
 const mongoose = require('mongoose');
 dotenv.config();
+const path = require('path');
+const PORT = process.env.PORT || 8000;
 const app = (0, express_1.default)();
 app.use('/graphql', (0, express_graphql_1.graphqlHTTP)({
     schema: schema_1.schema,
@@ -38,4 +40,4 @@ app.use('/graphql', (0, express_graphql_1.graphqlHTTP)({
 const uri = `mongodb+srv://matt123:matt321@cluster0.wclvz.mongodb.net/posts?retryWrites=true&w=majority`;
 const options = { useNewUrlParser: true, useUnifiedTopology: true };
 // MONGODB
-mongoose.connect(uri, options).then(app.listen(3000), console.log("Listening"));
+mongoose.connect(uri, options).then(app.listen(PORT), console.log(`Listening on ${PORT}`));
