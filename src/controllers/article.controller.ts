@@ -1,14 +1,15 @@
 const Articles = require('../models/article');
+const mongoose = require('mongoose')
 
 export class ArticlesController {
-    getArticle(args: any) {
-        return Articles.find({ url: args['url'] })
+    getArticle(parametr: any) {
+        return Articles.find({ _id: parametr._id})
       .then((article: any) => {
         return article[0];
       });
     }
     getArticles(args: any) {
-        return Articles.find({ url: args['url'] })
+        return Articles.find()
       .then((article: any) => {
         return article;
       });

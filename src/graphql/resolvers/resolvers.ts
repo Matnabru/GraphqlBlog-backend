@@ -5,8 +5,8 @@ export const resolvers = {
     getArticles: (_: void, args: any, _info: GraphQLResolveInfo) => {
       return articlesController.getArticles(args);
     },
-    getArticle: (_: void, args: any, _info: GraphQLResolveInfo) => {
-        return articlesController.getArticle(args);
+    getArticle: (parametr: any, args: any, _info: GraphQLResolveInfo) => {
+        return articlesController.getArticle(parametr);
       },
     createArticle: (inputObject:any) => {
         return articlesController.createArticle(inputObject);
