@@ -12,7 +12,7 @@ var cors = require('cors');
 const path = require('path')
 const PORT = process.env.PORT || 8000
 
-console.log('Frontend side set to : ' + process.env.FRONTEND_LINK)
+//console.log('Frontend side set to : ' + process.env.FRONTEND_LINK)
 
 const app = express()
 app.use(cors({credentials: true, origin: process.env.FRONTEND_LINK}));
@@ -27,5 +27,5 @@ const options = {useNewUrlParser: true, useUnifiedTopology: true}
 // MONGODB
 mongoose.connect(uri, options).then(
   app.listen(PORT,),
-  console.log(`Listening on http://localhost:${ PORT }`)
+  //console.log(`Listening on http://localhost:${ PORT }`)
 )
