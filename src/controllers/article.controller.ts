@@ -9,7 +9,7 @@ export class ArticlesController {
       });
     }
     getArticles(args: any) {
-        return Articles.find()
+        return Articles.find().sort({"createdAt": -1})
       .then((article: any) => {
         return article;
       });
@@ -20,4 +20,11 @@ export class ArticlesController {
           return articleInfo;
         });
       }
+    
+    deleteArticle(parametr: any) {
+      return Articles.findOneAndDelete({ _id: parametr._id }).then(
+        (article: any) => {
+        return article[0];
+      });
+    }
 }
