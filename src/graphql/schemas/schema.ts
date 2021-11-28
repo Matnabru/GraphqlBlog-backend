@@ -17,11 +17,15 @@ const schema = buildSchema(`type Article {
   }
 
   extend type Query {
-    getArticle(_id: String!):Article
+    getArticle(_id: String!): Article
   }
 
   type Mutation {
     createArticle(article:ArticleInput): Article
+  }
+
+  extend type Mutation {
+    deleteArticle(_id: String!): Article
   }
 
   schema {
