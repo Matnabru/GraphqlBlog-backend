@@ -32,7 +32,7 @@ dotenv.config();
 var cors = require('cors');
 const path = require('path');
 const PORT = process.env.PORT || 8000;
-console.log('Frontend side set to : ' + process.env.FRONTEND_LINK);
+//console.log('Frontend side set to : ' + process.env.FRONTEND_LINK)
 const app = (0, express_1.default)();
 app.use(cors({ credentials: true, origin: process.env.FRONTEND_LINK }));
 app.use('/graphql', (0, express_graphql_1.graphqlHTTP)({
@@ -40,7 +40,7 @@ app.use('/graphql', (0, express_graphql_1.graphqlHTTP)({
     rootValue: resolvers_1.resolvers,
     graphiql: true
 }));
-const uri = `mongodb+srv://matt123:matt321@cluster0.wclvz.mongodb.net/posts?retryWrites=true&w=majority`;
+const uri = process.env.URI;
 const options = { useNewUrlParser: true, useUnifiedTopology: true };
 // MONGODB
-mongoose.connect(uri, options).then(app.listen(PORT), console.log(`Listening on http://localhost:${PORT}`));
+mongoose.connect(uri, options).then(app.listen(PORT));
