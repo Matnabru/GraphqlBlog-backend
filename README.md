@@ -1,7 +1,7 @@
 # GraphqlBlog-backend
 
 
-#Define .env variables example
+Define .env variables example
 
 Validate access to backend (CORS) and define port to host you app
 ```sh
