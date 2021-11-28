@@ -22,7 +22,7 @@ app.use('/graphql', graphqlHTTP({
     graphiql: true
 }))
 
-const uri = `mongodb+srv://matt123:matt321@cluster0.wclvz.mongodb.net/posts?retryWrites=true&w=majority`
+const uri = process.env.URI
 const options = {useNewUrlParser: true, useUnifiedTopology: true}
 // MONGODB
 mongoose.connect(uri, options).then(
