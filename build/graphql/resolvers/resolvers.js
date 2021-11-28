@@ -7,10 +7,13 @@ exports.resolvers = {
     getArticles: (_, args, _info) => {
         return articlesController.getArticles(args);
     },
-    getArticle: (_, args, _info) => {
-        return articlesController.getArticle(args);
+    getArticle: (parametr, args, _info) => {
+        return articlesController.getArticle(parametr);
     },
     createArticle: (inputObject) => {
         return articlesController.createArticle(inputObject);
+    },
+    deleteArticle: (parametr) => {
+        return articlesController.deleteArticle(parametr);
     },
 };

@@ -29,9 +29,12 @@ const schema_1 = require("./graphql/schemas/schema");
 const resolvers_1 = require("./graphql/resolvers/resolvers");
 const mongoose = require('mongoose');
 dotenv.config();
+var cors = require('cors');
 const path = require('path');
 const PORT = process.env.PORT || 8000;
+console.log('Frontend side set to : ' + process.env.FRONTEND_LINK);
 const app = (0, express_1.default)();
+app.use(cors({ credentials: true, origin: process.env.FRONTEND_LINK }));
 app.use('/graphql', (0, express_graphql_1.graphqlHTTP)({
     schema: schema_1.schema,
     rootValue: resolvers_1.resolvers,
@@ -40,4 +43,4 @@ app.use('/graphql', (0, express_graphql_1.graphqlHTTP)({
 const uri = `mongodb+srv://matt123:matt321@cluster0.wclvz.mongodb.net/posts?retryWrites=true&w=majority`;
 const options = { useNewUrlParser: true, useUnifiedTopology: true };
 // MONGODB
-mongoose.connect(uri, options).then(app.listen(PORT), console.log(`Listening on ${PORT}`));
+mongoose.connect(uri, options).then(app.listen(PORT), console.log(`Listening on http://localhost:${PORT}`));
