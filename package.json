@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "startnodemon": "nodemon src/server.ts",
+    "startnodemon": "nodemon .env.development src/server.ts",
     "start": "node .env.production build/server.js",
     "build": "tsc --project ./"
   },
