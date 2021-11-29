@@ -1,5 +1,6 @@
 # GraphqlBlog-backend
 
+To access graphql add /graphql to adress 
 
 Define .env variables example
 
